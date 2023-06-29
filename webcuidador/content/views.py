@@ -110,24 +110,26 @@ def chart_npi(npi):
         )
     )
     return fig2
+
 def chart_eventos(eventos):
     eventos_data = [
         {
             'Fecha': e.fecha,
             'Frecuencia de baño': e.f_baño,
-            'Frecuencia de alimentación': e.f_alimentacion,
+            'Frecuencia de alimentacion': e.f_alimentacion,
             'Horas de sueño': e.f_sueño,
-            'Estado de ánimo': e.animo,
+            'Estado de animo': e.animo,
             'Otros':e.comentario
         } for e in eventos
     ]
     df = pd.DataFrame(eventos_data)
+    df = df.replace({None: np.nan})
 
     fig3 = px.line(df, x='Fecha', 
                         y=[
-                            'Estado de ánimo',
+                            'Estado de animo',
                             'Frecuencia de baño',
-                            'Frecuencia de alimentación',
+                            'Frecuencia de alimentacion',
                             'Horas de sueño'
                         ],
                         markers=True,
@@ -360,7 +362,6 @@ def informe_grafico(request):
         tipo_grafico = request.GET.get("tipo_grafico")
 
         if tipo_grafico == "" or not tipo_grafico:
-            print(tipo_grafico)
             if zarit:
                 fig = chart_zarit(zarit)
                 zarit_plot = plot(fig,output_type ="div")
