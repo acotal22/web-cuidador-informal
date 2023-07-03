@@ -1,11 +1,13 @@
 asgiref==3.6.0
 beautifulsoup4==4.12.2
+dj-database-url==2.0.0
 Django==4.1
 django-bootstrap-v5==1.0.11
 django-ckeditor==6.0.0
 django-js-asset==2.0.0
 django-paginator==0.2a3
 gunicorn==20.1.0
+mysqlclient==2.2.0
 numpy==1.24.3
 packaging==23.1
 pandas==2.0.2
@@ -18,5 +20,6 @@ six==1.16.0
 soupsieve==2.4.1
 sqlparse==0.4.4
 tenacity==8.2.2
+typing_extensions==4.7.1
 tzdata==2023.3
 whitenoise==6.4.0
