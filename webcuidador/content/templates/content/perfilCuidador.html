@@ -49,8 +49,7 @@
           <a href="{% url 'preguntas' %}" class="stretched-link">
           </a>
           <div class="centered "style="color: white;">PREGUNTAS</div>
-      </div>
-      
+      </div> 
     </div>
 
 
@@ -58,8 +57,31 @@
   
 </div>
 <hr>
+
 <div class="row mt-2">
-  <div class="col-lg-6 ml-auto mr-auto">
+  <div class="col-lg-4 col-md-4 col-sm-12">
+    <div class="profile-patient-container">
+      <div class="container text-center mx-auto"style="width: 70%;">
+          <div class="col-12 ">
+              <h4 align="center"><i class="fa fa-user-circle-o fa-3x mr-2"aria-hidden="true"></i><br>{{cuidador.user.paciente.nombres}}</h2>
+          </div>
+          
+      </div>
+      <div class="container mx-auto">
+          <p><b>Nombre:</b> {{cuidador.user.paciente.nombres}} {{cuidador.user.paciente.apellidos}}</p>
+          <hr>
+          <p><b>Edad:</b> {{cuidador.user.paciente.edad}} años</p>
+          <hr>
+          <p><b>Fecha de nacimiento:</b> {{cuidador.user.paciente.fecha_de_nacimiento}}</p>
+          <hr>
+          <p><b>Sexo:</b> {{cuidador.user.paciente.sexo}}</p>
+          <hr>
+          <p><b>Enfermedades crónicas:</b> {{cuidador.user.paciente.enfermedades}}</p>
+          <hr>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8 col-md-8 col-sm-12 mt-2">
     <h3 align="center">Eventos</h3>
     <table id="tablaTest" class="table table-sm">
       <thead>
