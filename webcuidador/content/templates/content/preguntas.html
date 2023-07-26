@@ -5,6 +5,14 @@
 <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 
 {% if user.is_cuidador %}
+    {% if 'add_question' in request.GET %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Pregunta añadida correctamente.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
     <form class=" my-lg-0" method="GET">
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" name="buscar" value="{{request.GET.buscar}}">
@@ -109,7 +117,14 @@
 {% endif %}
 
 {% if user.is_medico %}
-    
+    {% if 'add_answer' in request.GET %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Pregunta respondida correctamente.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
     <h2 id="titulo-medico" >Cuidador:  
         <a href="{% url 'perfil_cuidador' cuidador.user.id %}" class="text"> {{cuidador.user.first_name}} {{cuidador.user.last_name}}</a>
     </h2>

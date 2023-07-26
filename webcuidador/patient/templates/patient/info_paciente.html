@@ -15,6 +15,11 @@
       <div class="alert alert-success" role="alert">
         Perfil completado correctamente!.
       </div>
+    
+    {% elif 'add_evento' in request.GET %}
+      <div class="alert alert-success" role="alert">
+        Evento añadido correctamente.
+      </div>
     {% endif %}
     <div class="profile-patient-container">
       <div class="container text-center mx-auto"style="width: 70%;">

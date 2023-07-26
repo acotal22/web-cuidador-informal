@@ -264,6 +264,7 @@ def agregar_cuidador(request):
                 cuidador = Cuidador.objects.get(id=id_cuidador)
                 cuidador.medico = request.user
                 cuidador.save()
+                return redirect(reverse_lazy('home') + '?add_cuidador')
             except Cuidador.DoesNotExist:
                 print("Cuidador no existe")
                 
@@ -276,7 +277,7 @@ def eliminar_cuidador(request,id_cuidador):
     cuidador = get_object_or_404(Cuidador, id=id_cuidador)
     cuidador.medico = None  # Establece la relación con el médico como nula
     cuidador.save()
-    return redirect(reverse_lazy('home'))
+    return redirect(reverse_lazy('home') + '?delete_cuidador')
 @login_required
 @user_passes_test(check_medico, settings.LOGIN_REDIRECT_URL) 
 def perfil_cuidador(request, id_cuidador):
@@ -309,7 +310,7 @@ def preguntas(request,pregunta_id = None):
             pregunta = form.save(commit=False)
             pregunta.user_creador = request.user 
             pregunta.save()
-            return redirect(reverse_lazy('preguntas'))
+            return redirect(reverse_lazy('preguntas') + '?add_question')
        
         preguntas = pagination(preguntas,request)
 
@@ -337,7 +338,7 @@ def preguntas(request,pregunta_id = None):
                 pregunta.respuesta = form.cleaned_data['respuesta']
                 pregunta.user_responde = request.user 
                 pregunta.save()
-                return redirect(reverse_lazy('preguntas'))
+                return redirect(reverse_lazy('preguntas') + '?add_answer')
                 
             preguntas = pagination(preguntas,request)
             

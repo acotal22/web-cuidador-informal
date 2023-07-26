@@ -1,8 +1,10 @@
 from django.contrib import admin
 #from .models import Seccion, Topico, Subtopico
-from.models import Topico, Subtopico, Tema, DetalleTema
+from.models import Topico, Subtopico, Tema, DetalleTema, Pregunta
 
 # Register your models here.
+class PreguntaAdmin(admin.ModelAdmin):
+    list_display=('pregunta','respuesta','fecha_creacion','user_creador','user_responde')
 
 class TopicoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'creado_por', 'fecha_creacion')
@@ -53,3 +55,4 @@ admin.site.register(Topico, TopicoAdmin)
 admin.site.register(Subtopico, SubTopicoAdmin)
 admin.site.register(Tema, TemaAdmin)
 admin.site.register(DetalleTema, DetalleTemaAdmin)
+admin.site.register(Pregunta,PreguntaAdmin)

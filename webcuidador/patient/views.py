@@ -100,7 +100,7 @@ def registrar_evento(request):
             evento = form.save(commit=False)
             evento.user = request.user
             evento.save()
-            return redirect(reverse_lazy('info_paciente'))
+            return redirect(reverse_lazy('info_paciente') + '?add_evento')
     else:
         form = RegistroEventoForm()
         return render(request, 'patient/registrar_evento.html', {'form': form})
